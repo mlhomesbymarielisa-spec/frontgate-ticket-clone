@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #111212;
+  --foreground: #ffffff;
+  --accent: #7baa60;
+  --muted: #69665c;
+  --card-bg: #1a1a1b;
+  --border: #2a2a2b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Carousel animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-white text-black px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-opacity-90 hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border border-white/30 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-white/10;
+}
+
+/* Event card hover */
+.event-card {
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+}
+
+/* Navigation link hover */
+.nav-link {
+  @apply transition-colors duration-200 hover:text-white/70;
+}
+
+/* Dot indicators */
+.dot {
+  @apply w-2 h-2 rounded-full bg-white/30 transition-all duration-300;
+}
+
+.dot.active {
+  @apply bg-white w-6;
+}
