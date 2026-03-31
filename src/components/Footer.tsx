@@ -1,108 +1,33 @@
-"use client";
-
-import { useState } from "react";
-import Link from "next/link";
-import { Instagram, Linkedin, ArrowUpRight } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
-  const [activeTab, setActiveTab] = useState<"events" | "business">("events");
-  const [email, setEmail] = useState("");
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter signup
-    alert(`Thank you for subscribing with: ${email}`);
-    setEmail("");
-  };
-
   return (
     <footer className="bg-[#111212] border-t border-white/10 pt-12 pb-8 px-4 lg:pl-24">
       <div className="max-w-6xl mx-auto">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-12">
-          {/* Logo and Tabs */}
-          <div className="flex items-center gap-4">
-            {/* Logo */}
-            <div className="w-10 h-10 rounded-full border-2 border-white/80 flex items-center justify-center shrink-0">
-              <span className="text-xs font-bold text-white/80">FGT</span>
-            </div>
-
-            {/* Tabs */}
-            <div className="flex items-center bg-[#1a1a1b] rounded-full p-1">
-              <button
-                onClick={() => setActiveTab("events")}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeTab === "events"
-                    ? "bg-white text-[#111212]"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                Events
-              </button>
-              <button
-                onClick={() => setActiveTab("business")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-1 ${
-                  activeTab === "business"
-                    ? "bg-white text-[#111212]"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                Go to Business
-                <ArrowUpRight size={14} />
-              </button>
+          
+          {/* Newsletter / Sign Up Section */}
+          <div>
+            <p className="text-white mb-3">Subscribe to our newsletter!</p>
+            <div className="flex items-center gap-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-transparent border border-white/30 rounded-full px-4 py-2 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
+              />
+              <Link href="/signup">
+                <button 
+                  type="button"
+                  className="bg-white/10 border border-white/30 text-white px-6 py-2 rounded-full font-medium hover:bg-white/20 transition-colors"
+                >
+                  Sign Up
+                </button>
+              </Link>
             </div>
           </div>
-
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center gap-6 md:gap-10">
-            <Link
-              href="/events"
-              className="text-white hover:text-white/70 transition-colors flex items-center gap-2"
-            >
-              Browse Events
-              <span className="w-5 h-5 bg-[#7baa60] rounded flex items-center justify-center">
-                <span className="text-[10px] text-white">+</span>
-              </span>
-            </Link>
-            <Link
-              href="/support"
-              className="text-white hover:text-white/70 transition-colors"
-            >
-              Support
-            </Link>
-            <Link
-              href="/about"
-              className="text-white hover:text-white/70 transition-colors"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/careers"
-              className="text-white hover:text-white/70 transition-colors"
-            >
-              Careers
-            </Link>
-          </nav>
-        </div>
-
-       import Link from "next/link"; // Add this at the very top of the file
-
-// ... inside your Footer function ...
-<div className="flex items-center gap-2">
-  <input 
-    type="email" 
-    placeholder="Enter your email" 
-    className="..." // keep your existing classes
-  />
-  <Link href="/signup">
-    <button 
-      type="button" 
-      className="bg-white/10 border border-white/30 text-white px-6 py-2 rounded-full font-medium hover:bg-white/20 transition-colors"
-    >
-      Sign Up
-    </button>
-  </Link>
-</div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
