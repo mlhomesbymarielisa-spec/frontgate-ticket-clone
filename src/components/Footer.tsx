@@ -85,27 +85,24 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Newsletter and Social */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12 pb-8 border-b border-white/10">
-          {/* Newsletter */}
-          <div>
-            <p className="text-white mb-3">Subscribe to our newsletter!</p>
-            <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="bg-transparent border border-white/30 rounded-full px-4 py-2 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-white/10 border border-white/30 text-white px-6 py-2 rounded-full font-medium hover:bg-white/20 transition-colors"
-              >
-                Sign Up
-              </button>
-            </form>
-          </div>
+       import Link from "next/link"; // Add this at the very top of the file
+
+// ... inside your Footer function ...
+<div className="flex items-center gap-2">
+  <input 
+    type="email" 
+    placeholder="Enter your email" 
+    className="..." // keep your existing classes
+  />
+  <Link href="/signup">
+    <button 
+      type="button" 
+      className="bg-white/10 border border-white/30 text-white px-6 py-2 rounded-full font-medium hover:bg-white/20 transition-colors"
+    >
+      Sign Up
+    </button>
+  </Link>
+</div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
